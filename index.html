@@ -1,0 +1,111 @@
+<html>
+
+<head>
+  <title>Prueba Socket</title>
+  <link rel="stylesheet" href="styles/github-dark.css">
+  <script src="highlight.pack.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Prueba Documentacion</h1>
+    <p>
+      Esta es la primera funcion que se ejecuta apenas llega algo al socket
+      recibe el device ID (fingerprint) la licencia ya desencriptada, y el Socket
+      <br>
+      nota: por cada cliente/conexion se crea un socket nuevo y unico, ese socket contiene dentro
+      todos los metodos, ["ping", "message", "open", "close"]
+
+    </p>
+
+    <pre>function handle_connection(fingerprint, license_key, socket)</pre>
+
+    <div class="divider"></div>
+
+  </div>
+
+  <style media="screen">
+    body {
+      font-family: 'helvetica', sans-serif;
+      background-color: #282937;
+    }
+
+    h1 {
+      color: #ffffff;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #bdbdbd;
+    }
+
+    .divider {
+      width: 80%;
+      margin: auto;
+      height: 5px;
+      background-color: #aaaaaa;
+    }
+
+    .container {
+      width: 75%;
+      margin: auto;
+    }
+  </style>
+
+  <script type="text/javascript">
+    window.onload = function() {
+      var aCodes = document.getElementsByTagName('pre');
+      for (var i = 0; i < aCodes.length; i++) {
+        hljs.highlightBlock(aCodes[i]);
+      }
+    };
+    hljs.highlightAll();
+  </script>
+
+  <!--  <script>
+    const client = new WebSocket(
+      "ws://localhost:3000/signed/listen/eyJfcmFpbHMiOnsibWVzc2FnZSI6ImV5SnNhV05sYm5ObFgydGxlU0k2SW1ZeU5UZGxZMlJoWkMwMUluMD0iLCJleHAiOiIyMDIxLTA2LTA0VDIxOjE1OjIyLjA2NFoiLCJwdXIiOm51bGx9fQ==--9a7be54ed206e964f05d73232821fd90b4856388abf3a817325471f54b76081d/B478047F21D56C9DDFA422BE1F7149AF"
+    )
+
+    client.onmessage = function(msg) {
+      console.log(msg)
+    }
+
+    client.onclose = function() {
+      console.log("client closed")
+    }
+
+    client.onopen = function() {
+      console.log("opened")
+
+      setTimeout(() => {
+        let str = JSON.stringify({
+          "type": "hash_progress",
+          "payload": {
+            "progress": 0.43
+          }
+        })
+
+        client.send(JSON.stringify({
+          "type": "connected"
+        }))
+
+        console.log("sending " + str);
+
+        client.send(str);
+
+        client.send(JSON.stringify({
+          "type": "ping",
+          "payload": {}
+        }))
+      }, 3000)
+
+    }
+
+    console.log("Client started")
+  </script> -->
+</body>
+
+</html>
